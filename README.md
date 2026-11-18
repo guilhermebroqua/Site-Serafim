@@ -52,13 +52,6 @@ O nome Serafim é uma homenagem ao avô de Rodrigo, criador das peças, mantendo
 
 O site é hospedado pela plataforma Netlify, com integração ao GitHub para publicação automática das atualizações.
 
-## 💻 Como executar localmente
-
-1. Faça o download ou clone este repositório.
-2. Abra a pasta do projeto no Visual Studio Code.
-3. Abra o arquivo `index.html` no navegador.
-4. Para uma melhor experiência de desenvolvimento, utilize a extensão Live Server do VS Code.
-
 ---
 
 <p align="center">
