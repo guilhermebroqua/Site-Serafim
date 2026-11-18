@@ -258,14 +258,16 @@ button, .cta, .detail-wa, .instagram-cta { touch-action: manipulation; }
   .topbar { font-size: 10px; line-height: 1.45; letter-spacing: .08em; }
   header { padding-bottom: 30px; }
   nav {
-    gap: 16px;
-    padding: 12px 24px 12px 22px;
-    scroll-padding-inline: 22px;
-    scroll-snap-type: x proximity;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: visible;
+    white-space: normal;
+    gap: 8px 14px;
+    padding: 12px 14px;
   }
   nav > a, nav .contact-menu, nav .cart-nav {
     flex: 0 0 auto;
-    scroll-snap-align: start;
   }
   nav a, nav button { min-height: 42px; display: inline-flex; align-items: center; }
   .hero { gap: 4px; margin: 12px auto 26px; }
