@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta name="theme-color" content="#171411"/><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Serafim Arte em Madeira — peças artesanais em madeira para jardim e decoração." name="description"/>
+<title>Serafim | Arte em Madeira</title>
+<style>
+:root{--ink:#201a16;--brown:#60432f;--wood:#9b704e;--cream:#f5f0e8;--paper:#fffdf9;--muted:#82766a;--line:#e7ded2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.topbar{background:#171411;color:#eee8df;text-align:center;padding:10px 16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+header{background:#171411;color:white;padding:10px 5vw 58px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;inset:auto -5% -175px;height:200px;border-radius:50%;background:var(--cream)}
+.logo{width:min(270px,68vw);height:auto;display:block;margin:0 auto 7px;position:relative;z-index:1}
+header p{position:relative;z-index:1;color:#d6c9b9;letter-spacing:.22em;text-transform:uppercase;font-size:11px;margin:0}
+nav{display:flex;justify-content:center;gap:28px;padding:17px;position:relative;z-index:2;background:var(--cream);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+nav a:hover{color:var(--wood)}
+.hero{max-width:1160px;margin:28px auto 55px;padding:0 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}
+.hero-copy .eyebrow{color:var(--wood);letter-spacing:.22em;font-size:11px;text-transform:uppercase;font-weight:700}
+h1{font-family:Georgia,serif;font-size:clamp(38px,5vw,66px);font-weight:400;line-height:1.03;margin:16px 0}
+.hero-copy p{color:#62584e;line-height:1.8;max-width:490px}
+.hero-art{border:0;padding:0;background:transparent;box-shadow:none;display:flex;justify-content:center;align-items:center}
+.hero-art img{width:100%;height:540px;object-fit:contain;object-position:center center;display:block;background:transparent}
+.cta{display:inline-block;background:var(--brown);color:white;padding:14px 20px;margin-top:12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.section-head{max-width:1160px;margin:0 auto 22px;padding:0 24px;display:flex;align-items:end;justify-content:space-between;gap:20px}
+.section-head h2{font:400 clamp(30px,4vw,42px) Georgia,serif;margin:0}
+.section-head p{color:var(--muted);font-size:13px;margin:7px 0 0}
+.controls{max-width:1160px;padding:0 24px;margin:0 auto 24px;display:flex;gap:12px;flex-wrap:wrap}
+input[type=search],.catalog-select{min-height:46px;border:1px solid #d9cbbb;background:var(--paper);padding:12px 15px;font-size:14px;color:var(--ink);outline:none;border-radius:3px}
+input[type=search]{width:min(100%,390px)}.catalog-select{min-width:190px;cursor:pointer}.catalog-select:focus,input[type=search]:focus{border-color:var(--wood);box-shadow:0 0 0 3px #9b704e1c}
+.count{font-size:12px;color:var(--muted);align-self:center;margin-left:auto}.clear-filters{border:1px solid #d9cbbb;background:transparent;color:var(--brown);padding:0 14px;min-height:44px;cursor:pointer;font-size:12px}.clear-filters:hover{background:#eee5da}
+.card-action{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--brown);font-weight:700}.card-action span:last-child{font-size:18px}
+.catalog{max-width:1160px;margin:0 auto 80px;padding:0 24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.product-card{background:var(--paper);border:1px solid var(--line);min-width:0;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #3c281414}
+.photo-strip{height:260px;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;background:#e6ded2}
+.photo-strip img{width:100%;height:260px;flex:0 0 100%;object-fit:contain;object-position:center;background:#e6ded2;scroll-snap-align:start}
+.product-info{padding:20px;display:flex;flex-direction:column;flex:1}
+.product-number{font-size:9px;letter-spacing:.17em;color:var(--wood);font-weight:700}
+h3{font:400 23px Georgia,serif;margin:10px 0 7px}
+.price{font-size:20px;font-weight:700;margin:5px 0;color:var(--brown)}
+.dimensions{font-size:12px;color:var(--muted);margin:0 0 17px;min-height:16px}
+.buy{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;display:flex;justify-content:space-between;align-items:center}
+.buy:hover{color:var(--wood)}
+.about{background:#e9dfd2;padding:58px 24px;text-align:center}
+.about h2{font:400 38px Georgia,serif;margin:0 0 12px}
+.about p{max-width:620px;margin:0 auto;color:#61564b;line-height:1.8;font-size:14px}
+footer{background:#171411;color:#d6c9b9;text-align:center;padding:34px 20px;font-size:12px;line-height:1.9}
+footer strong{color:#fff;font:italic 25px Georgia,serif}
+@media(max-width:850px){.catalog{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr;max-width:650px}.hero-art img{height:460px}}
+@media(max-width:560px){nav{gap:15px;font-size:10px}.catalog{grid-template-columns:1fr;padding:0 16px;gap:16px}.section-head,.controls{padding:0 16px}.photo-strip,.photo-strip img{height:280px}.hero{padding:0 18px;margin-top:20px}.section-head{align-items:start;flex-direction:column}.controls{display:grid;grid-template-columns:1fr 1fr;gap:9px}.controls input[type=search]{grid-column:1/-1;width:100%}.catalog-select{min-width:0;width:100%;font-size:12px;padding:10px}.clear-filters{min-height:42px}.count{grid-column:1/-1;margin:2px 0 0}}
+
+.product-card{cursor:pointer}.product-card:focus-visible{outline:3px solid var(--wood);outline-offset:3px}.product-card[hidden]{display:none!important}
+.detail-page{position:fixed;inset:0;z-index:50;background:#f5f0e8;overflow:auto;display:none}.detail-page.open{display:block}.detail-top{position:sticky;top:0;background:#171411;color:white;padding:14px 5vw;display:flex;justify-content:space-between;align-items:center;z-index:2}.detail-top button{border:1px solid #a99580;color:white;background:transparent;padding:10px 16px;cursor:pointer}.detail-wrap{max-width:1100px;margin:35px auto;padding:0 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:start}.detail-gallery{background:#fffdf9;border:1px solid #e7ded2;padding:14px}.detail-gallery img{display:block;width:100%;height:480px;object-fit:contain;background:#e6ded2}.detail-info{background:#fffdf9;border:1px solid #e7ded2;padding:30px}.detail-info h2{font:400 clamp(30px,4vw,42px) Georgia,serif;margin:8px 0 16px}.detail-info .price{font-size:28px}.detail-info p{line-height:1.8;color:#62584e}.detail-wa{display:block;background:#276749;color:white;text-align:center;padding:16px;margin-top:24px;font-size:13px;text-transform:uppercase;letter-spacing:.06em}.detail-thumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.detail-thumbs button{border:1px solid #d9cbbb;background:#fff;padding:4px;cursor:pointer}.detail-thumbs img{width:74px;height:74px;object-fit:contain;background:#e6ded2}.product-card .buy{pointer-events:none}
+@media(max-width:700px){.detail-wrap{grid-template-columns:1fr;margin:16px auto;gap:16px}.detail-gallery img{height:320px}.detail-info{padding:22px}.hero-art img{height:390px}}
+
+/* Atualizações de contato, envio e carrinho */
+nav{align-items:center;flex-wrap:wrap}
+.contact-menu{position:relative}
+.contact-menu>button,.cart-nav{border:0;background:transparent;color:var(--ink);font:inherit;letter-spacing:inherit;text-transform:uppercase;cursor:pointer;padding:8px 4px}
+.contact-pop{position:absolute;top:calc(100% + 12px);right:0;min-width:245px;background:#fffdf9;border:1px solid #d9cbbb;box-shadow:0 12px 28px #24180f22;z-index:20;padding:8px}
+.contact-pop[hidden]{display:none}
+.contact-pop a{display:flex;align-items:center;gap:10px;padding:12px 10px;font-size:12px;text-transform:none;letter-spacing:0;border-bottom:1px solid #eee7df}
+.contact-pop a:last-child{border-bottom:0}.contact-pop small{margin-left:auto;color:#766b60;font-size:10px}
+.app-icon{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;color:white;font-size:19px;font-weight:bold;flex:0 0 27px}.app-icon svg{width:19px;height:19px;display:block}
+.whatsapp{background:#25a75a}.instagram{background:linear-gradient(135deg,#7845c5,#e13d76,#f5a13b)}
+.cart-nav{background:#2c241e;color:#fff;border-radius:2px;padding:10px 14px}.cart-nav b{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:50%;background:#fff;color:#2c241e;margin-left:5px}
+.shipping-banner{max-width:1112px;margin:0 auto 56px;padding:20px 24px;background:#e9dfd2;display:flex;align-items:center;gap:17px;border-left:4px solid #8b6848}
+.shipping-icon{font-size:30px;color:#6d4e35}.shipping-banner strong{font:400 23px Georgia,serif}.shipping-banner p{margin:5px 0 0;color:#62584e;font-size:13px;line-height:1.6}
+.hero-art{padding:0;overflow:visible;box-shadow:none}.hero-art img{height:540px;object-fit:contain;object-position:center;background:transparent}
+.detail-top{min-height:78px}.detail-logo{width:min(210px,48vw);height:55px;object-fit:contain;object-position:left center}
+.add-cart{display:block;width:100%;background:#30251d;color:#fff;border:0;padding:16px;margin-top:20px;cursor:pointer;text-transform:uppercase;letter-spacing:.06em;font-size:13px}.add-cart:hover,.cart-nav:hover{opacity:.88}
+.cart-page{position:fixed;inset:0;background:#17141199;z-index:80;display:none;justify-content:flex-end}.cart-page.open{display:flex}.cart-panel{width:min(520px,100%);height:100%;background:#f8f4ed;display:flex;flex-direction:column;padding:24px;box-shadow:-12px 0 35px #0002;overflow:auto}.cart-heading{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d9cbbb;padding-bottom:15px}.cart-heading h2{font:400 32px Georgia,serif;margin:0}.cart-heading button{border:0;background:transparent;font-size:22px;cursor:pointer}.cart-items{padding:10px 0;flex:1}.cart-line{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid #e1d8cc}.cart-line>img{width:76px;height:76px;object-fit:cover;background:#e8dfd4}.cart-line .cart-qty{display:flex;align-items:center;gap:8px;margin-top:8px}.cart-line .cart-qty button{border:1px solid #d4c7b8;background:#fffaf3;color:#30251d;width:25px;height:25px;border-radius:2px;font-size:15px}.cart-line .cart-qty span{font-size:13px;min-width:12px;text-align:center}.cart-line strong{font:400 18px Georgia,serif}.cart-line small{display:block;color:#74695e;margin-top:5px}.cart-line button{border:0;background:transparent;color:#8a3d2e;cursor:pointer}.cart-total{display:flex;justify-content:space-between;align-items:center;font-size:15px}.cart-total strong{font-size:22px}.cart-footer>p{font-size:12px;color:#74695e}.cart-footer .detail-wa{width:100%;border:0;cursor:pointer}.cart-form{display:grid;gap:10px;margin-top:16px}.cart-form label{display:grid;gap:6px;color:#4c4036;font-size:12px;font-weight:600}.cart-form input{width:100%;box-sizing:border-box;border:1px solid #d4c7b8;background:#fffdf9;padding:12px 13px;font:14px Arial,sans-serif;color:#30251d;outline:none}.cart-form input:focus{border-color:#276749;box-shadow:0 0 0 2px #27674922}.cart-form input::placeholder{color:#a79a8d}.cart-footer .detail-wa:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:700px){.shipping-banner{margin:0 16px 38px;padding:16px}.shipping-banner strong{font-size:20px}.detail-logo{height:45px}.cart-panel{padding:18px}.hero-art img{height:360px}}
+.cart-fab{position:fixed;right:22px;bottom:22px;z-index:60;border:0;border-radius:999px;background:#276749;color:white;padding:14px 20px;box-shadow:0 8px 24px #17141135;font:600 13px Arial,sans-serif;cursor:pointer;display:none}.cart-fab.visible{display:block}.cart-fab:hover{background:#20583f}.cart-fab strong{margin-left:6px}
+
+
+.photo-strip{position:relative}
+.best-seller-badge{position:absolute;z-index:1;top:13px;left:13px;background:#c62828;color:#fff;padding:8px 11px;font-size:10px;font-weight:800;letter-spacing:.09em;line-height:1;border-radius:2px;box-shadow:0 3px 10px #0003}
+
+/* v9: seções editoriais e galeria aprimorada */
+.featured-section{max-width:1160px;margin:0 auto 78px;padding:0 24px}.featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.featured-card{background:var(--paper);border:1px solid var(--line);cursor:pointer;text-align:left;padding:0;display:flex;flex-direction:column;color:var(--ink);transition:transform .2s,box-shadow .2s}.featured-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #3c281414}.featured-card img{width:100%;height:230px;object-fit:contain;background:#e6ded2}.featured-card div{padding:17px}.featured-card small{color:var(--wood);font-size:10px;letter-spacing:.14em;text-transform:uppercase}.featured-card strong{display:block;font:400 22px Georgia,serif;margin:8px 0}.featured-card span{color:var(--brown);font-weight:700}
+.how-section{background:#fffdf9;padding:65px 24px;margin:0 0 0}.editorial-head{text-align:center;margin:0 auto 32px;max-width:700px}.editorial-head h2{font:400 clamp(30px,4vw,42px) Georgia,serif;margin:0 0 10px}.editorial-head p{color:var(--muted);line-height:1.7;margin:0}.steps{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{background:var(--cream);padding:26px 24px;border:1px solid var(--line)}.step-number{width:38px;height:38px;display:grid;place-items:center;background:var(--brown);color:white;border-radius:50%;font:18px Georgia,serif}.step h3{font:400 22px Georgia,serif;margin:16px 0 8px}.step p{font-size:13px;color:#62584e;line-height:1.75;margin:0}
+.story-section{padding:70px 24px;background:#e9dfd2}.story-wrap{max-width:1080px;margin:auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center}.story-photo{min-height:360px;border:1px dashed #9b8068;background:linear-gradient(145deg,#ded0bd,#c8b39b);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#60432f}.story-photo strong{display:block;font:400 25px Georgia,serif;margin-bottom:8px}.story-photo span{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.story-video-frame{width:100%;max-width:440px;margin:0 auto;display:flex;justify-content:center;align-items:center;min-width:0;overflow:hidden;border-radius:8px;background:#211b16;box-shadow:0 14px 34px #3c281425}
+.story-video-frame video{display:block;width:100%;height:auto;max-height:640px;object-fit:contain;background:#17120f;border-radius:8px}
+@media(max-width:760px){.story-video-frame{max-width:360px}.story-video-frame video{max-height:600px}}.story-copy .eyebrow{color:var(--wood);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}.story-copy h2{font:400 clamp(32px,4vw,44px) Georgia,serif;margin:12px 0}.story-copy p{color:#61564b;line-height:1.9;font-size:14px}
+.about{padding:48px 24px}.footer-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px;text-align:left}.footer-grid h4{font:400 19px Georgia,serif;color:#fff;margin:0 0 12px}.footer-grid p,.footer-grid a{font-size:12px;color:#d6c9b9;line-height:1.9}.footer-grid a:hover{color:#fff}.footer-brand strong{font-size:30px}.footer-bottom{border-top:1px solid #51483f;margin:28px auto 0;padding-top:18px;max-width:1100px;color:#a99b8c;font-size:11px}
+.detail-wrap{max-width:1180px;gap:28px;margin:26px auto}.detail-gallery{position:sticky;top:100px;padding:16px;background:#fffdf9;border:1px solid var(--line);box-shadow:0 12px 32px #3c28140d}.detail-gallery:before{content:'GALERIA DO PRODUTO';display:block;font-size:9px;letter-spacing:.18em;color:var(--wood);font-weight:700;margin:0 0 12px}.detail-gallery img{height:510px;background:#f0ebe3;cursor:zoom-in;border-radius:2px}.detail-thumbs{gap:9px;padding-bottom:2px}.detail-thumbs button{border:1px solid #ded3c6;border-radius:3px;transition:border-color .2s,box-shadow .2s}.detail-thumbs button.active{border:2px solid var(--brown);box-shadow:0 0 0 2px #9b704e22}.detail-thumbs img{width:82px;height:76px;background:#f0ebe3}.detail-info{box-shadow:0 12px 32px #3c28140d}.detail-info .price{font-size:32px;margin:16px 0}.detail-info h2{line-height:1.12}.detail-info p{font-size:14px}.detail-meta{display:grid;gap:10px;background:#f5f0e8;padding:15px;margin:18px 0}.detail-meta div{font-size:12px;color:#62584e}.detail-meta strong{color:#30251d}.gallery-count{font-size:11px;color:var(--muted);text-align:right;margin-top:8px}
+.image-lightbox{position:fixed;inset:0;z-index:120;background:#100d0beF;display:none;align-items:center;justify-content:center;padding:35px}.image-lightbox.open{display:flex}.image-lightbox img{max-width:min(100%,1100px);max-height:90vh;object-fit:contain}.image-lightbox button{position:absolute;right:24px;top:20px;border:1px solid #ffffff77;color:white;background:#ffffff18;padding:10px 14px;font-size:22px;cursor:pointer}
+@media(max-width:800px){.featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.story-wrap{grid-template-columns:1fr}.story-photo{min-height:260px}.footer-grid{grid-template-columns:1fr 1fr}.detail-gallery{position:static}.detail-gallery img{height:420px}}
+@media(max-width:560px){.featured-grid,.steps{grid-template-columns:1fr}.featured-section{padding:0 16px}.featured-card img{height:240px}.how-section,.story-section{padding:48px 18px}.footer-grid{grid-template-columns:1fr;gap:18px}.detail-gallery img{height:330px}.detail-thumbs img{width:68px;height:64px}.detail-info{padding:22px}.image-lightbox{padding:18px}}
+
+
+/* Personalização e atalho fixo para WhatsApp */
+.custom-order{max-width:1080px;margin:34px auto 0;padding:25px 28px;background:#e9dfd2;border-left:4px solid #8b6848;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.custom-order h3{font:400 25px Georgia,serif;margin:0 0 7px}.custom-order p{font-size:13px;line-height:1.7;color:#62584e;margin:0;max-width:680px}
+.custom-order a{flex:0 0 auto;background:#276749;color:#fff;padding:14px 18px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;text-align:center}
+.whatsapp-fab{position:fixed;left:22px;bottom:22px;z-index:59;display:flex;align-items:center;gap:9px;background:#25a75a;color:#fff;padding:12px 17px;border-radius:999px;box-shadow:0 8px 24px #17141135;font:600 13px Arial,sans-serif;transition:transform .2s,background .2s}
+.whatsapp-fab:hover{background:#1f8f4d;transform:translateY(-2px)}.whatsapp-fab svg{width:22px;height:22px;flex:0 0 22px;fill:currentColor}
+@media(max-width:560px){.custom-order{margin:28px 0 0;padding:22px 18px;display:block}.custom-order a{display:block;margin-top:16px}.whatsapp-fab{left:14px;bottom:14px;padding:12px;border-radius:50%;width:48px;height:48px;justify-content:center}.whatsapp-fab span{display:none}.cart-fab{right:14px;bottom:14px;padding:13px 15px}}
+
+/* v14: destaque para o Instagram e perguntas frequentes */
+.instagram-section{padding:62px 24px;background:#211a16;color:#f5f0e8;margin:0 0 0}
+.instagram-wrap{max-width:1080px;margin:auto;display:grid;grid-template-columns:.75fr 1.25fr;gap:42px;align-items:center}
+.instagram-stat{min-height:230px;border:1px solid #8a725c;background:linear-gradient(145deg,#30241c,#171411);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}
+.instagram-stat .instagram-logo{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#7845c5,#e13d76,#f5a13b);margin-bottom:16px}
+.instagram-stat svg{width:27px;height:27px;stroke:#fff;fill:none;stroke-width:2}
+.instagram-stat strong{font:400 clamp(38px,5vw,54px) Georgia,serif;color:#fff;line-height:1.1}
+.instagram-stat span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#d6c9b9;margin-top:9px}
+.instagram-copy .eyebrow{color:#c5a17e;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.instagram-copy h2{font:400 clamp(30px,4vw,42px) Georgia,serif;line-height:1.12;margin:12px 0}
+.instagram-copy p{color:#d6c9b9;font-size:14px;line-height:1.85;max-width:600px}
+.instagram-cta{display:inline-flex;align-items:center;gap:10px;margin-top:12px;padding:14px 19px;background:#f5f0e8;color:#211a16;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;transition:transform .2s,background .2s}
+.instagram-cta:hover{background:#fff;transform:translateY(-2px)}
+.instagram-cta svg{width:17px;height:17px;fill:currentColor}
+.faq-section{padding:66px 24px;background:#f5f0e8}
+.faq-wrap{max-width:900px;margin:auto}
+.faq-list{display:grid;gap:11px}
+.faq-item{background:#fffdf9;border:1px solid #e7ded2}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;font:400 20px Georgia,serif;color:#30251d}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:'+';font:24px Arial,sans-serif;color:#8b6848;flex:0 0 auto}
+.faq-item[open] summary:after{content:'−'}
+.faq-item summary:focus-visible{outline:3px solid #9b704e;outline-offset:-3px}
+.faq-answer{padding:0 22px 20px;color:#62584e;font-size:13px;line-height:1.85;max-width:800px}
+.faq-answer p{margin:0}
+@media(max-width:700px){.instagram-wrap{grid-template-columns:1fr;gap:24px}.instagram-stat{min-height:190px}.instagram-section,.faq-section{padding:48px 18px}}
+
+
+
+/* v17: experiência mobile compacta, inspirada em vitrines de aplicativos */
+@media (max-width: 560px) {
+  body { overflow-x: hidden; }
+  .topbar { padding: 8px 10px; font-size: 9px; letter-spacing: .12em; }
+  header { padding: 8px 14px 34px; }
+  .logo { width: min(190px, 52vw); margin-bottom: 4px; }
+  header p { font-size: 9px; letter-spacing: .13em; }
+  nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 20px;
+    padding: 13px 15px;
+    font-size: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .hero { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 15px auto 30px; padding: 0 16px; }
+  .hero-copy .eyebrow { font-size: 9px; }
+  .hero-copy h1, h1 { font-size: clamp(30px, 9vw, 39px); margin: 9px 0; }
+  .hero-copy p { font-size: 13px; line-height: 1.55; margin: 8px 0; }
+  .hero-art img { height: 235px; max-width: 100%; }
+  .cta { padding: 11px 15px; font-size: 10px; }
+
+  .section-head { padding: 0 13px; margin-bottom: 14px; gap: 8px; }
+  .section-head h2 { font-size: 27px; }
+  .section-head p { font-size: 11px; }
+  .controls { padding: 0 12px; margin-bottom: 14px; gap: 7px; }
+  input[type=search], .catalog-select { min-height: 40px; padding: 9px 10px; font-size: 12px; }
+  .clear-filters { min-height: 40px; padding: 0 8px; font-size: 10px; }
+  .count { font-size: 10px; }
+
+  .catalog {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 10px;
+    gap: 10px;
+    margin: 0 auto 42px;
+  }
+  .product-card { border-radius: 5px; overflow: hidden; box-shadow: 0 2px 8px #3c28140c; }
+  .photo-strip, .photo-strip img { height: 158px; }
+  .photo-strip img { object-fit: contain; }
+  .product-info { padding: 10px 10px 11px; }
+  .product-number { font-size: 8px; letter-spacing: .1em; }
+  .product-info h3, .product-card h3 { font: 400 15px/1.22 Georgia, serif; margin: 6px 0 5px; min-height: 36px; }
+  .product-info .price, .product-card .price { font-size: 16px; margin: 4px 0 6px; }
+  .dimensions { font-size: 9px; line-height: 1.35; margin: 0 0 9px; min-height: 24px; }
+  .buy, .card-action { padding-top: 9px; font-size: 9px; letter-spacing: .02em; }
+  .buy span:last-child, .card-action span:last-child { font-size: 15px; }
+  .best-seller-badge { top: 7px; left: 7px; padding: 6px 7px; font-size: 8px; }
+
+  .featured-section { padding: 0 10px; margin-bottom: 42px; }
+  .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .featured-card { border-radius: 5px; overflow: hidden; }
+  .featured-card img { height: 145px; }
+  .featured-card div { padding: 10px; }
+  .featured-card small { font-size: 8px; }
+  .featured-card strong { font-size: 15px; margin: 5px 0; line-height: 1.2; }
+  .featured-card span { font-size: 13px; }
+
+  .about { padding: 34px 16px; }
+  .about h2 { font-size: 29px; }
+  .about p { font-size: 12px; line-height: 1.65; }
+  .how-section, .story-section, .instagram-section, .faq-section { padding: 38px 14px; }
+  .editorial-head { margin-bottom: 22px; }
+  .editorial-head h2, .story-copy h2, .instagram-copy h2 { font-size: 29px; }
+  .editorial-head p, .story-copy p, .instagram-copy p { font-size: 12px; line-height: 1.65; }
+  .steps { grid-template-columns: 1fr; gap: 10px; }
+  .step { padding: 17px; }
+  .step h3 { font-size: 18px; margin: 10px 0 6px; }
+  .step p { font-size: 11px; }
+  .story-wrap { gap: 22px; }
+  .story-video-frame { max-width: 300px; }
+  .story-video-frame video { max-height: 480px; }
+  .instagram-wrap { gap: 18px; }
+  .instagram-stat { min-height: 155px; padding: 18px; }
+  .instagram-stat strong { font-size: 40px; }
+  .faq-item summary { padding: 15px; font-size: 16px; }
+  .faq-answer { padding: 0 15px 15px; font-size: 12px; }
+  .custom-order { margin: 22px 0 0; padding: 17px; }
+  .custom-order h3 { font-size: 20px; }
+  .custom-order p { font-size: 12px; }
+
+  .detail-top { padding: 10px 13px; }
+  .detail-wrap { margin: 8px auto; padding: 0 10px; gap: 10px; }
+  .detail-gallery { padding: 9px; }
+  .detail-gallery:before { font-size: 8px; margin-bottom: 8px; }
+  .detail-gallery img { height: 270px; }
+  .detail-info { padding: 16px; }
+  .detail-info h2 { font-size: 25px; }
+  .detail-info .price { font-size: 23px; }
+  .detail-info p { font-size: 12px; line-height: 1.6; }
+  .detail-meta { padding: 11px; gap: 7px; }
+  .detail-meta div { font-size: 11px; }
+  .detail-wa, .add-cart { padding: 13px; font-size: 11px; }
+  .cart-panel { padding: 14px; }
+  .cart-heading h2 { font-size: 27px; }
+  .cart-line { grid-template-columns: 58px 1fr auto; gap: 8px; }
+  .cart-line > img { width: 58px; height: 58px; }
+  .cart-line strong { font-size: 15px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 14px; }
+  footer { padding: 28px 16px; }
+}
+
+/* Telefones compactos: preserva duas colunas sem apertar os cartões */
+@media (max-width: 360px) {
+  .catalog { gap: 7px; padding: 0 8px; }
+  .photo-strip, .photo-strip img { height: 138px; }
+  .product-info { padding: 8px; }
+  .product-info h3, .product-card h3 { font-size: 14px; }
+  .product-info .price, .product-card .price { font-size: 15px; }
+}
+
+
+
+/* Refinos de responsividade e acessibilidade — camada complementar */
+:root { color-scheme: light; }
+html { scroll-padding-top: 18px; }
+img, video { max-width: 100%; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button, .cta, .detail-wa, .instagram-cta { touch-action: manipulation; }
+:focus-visible { outline: 3px solid #9b704e; outline-offset: 3px; }
+
+@media (max-width: 560px) {
+  body { min-width: 320px; }
+  .topbar { font-size: 10px; line-height: 1.45; letter-spacing: .08em; }
+  header { padding-bottom: 30px; }
+  nav { gap: 18px; padding: 12px 16px; scroll-snap-type: x proximity; }
+  nav > a, nav .contact-menu, nav .cart-nav { flex: 0 0 auto; scroll-snap-align: start; }
+  nav a, nav button { min-height: 42px; display: inline-flex; align-items: center; }
+  .hero { gap: 4px; margin: 12px auto 26px; }
+  .hero-copy h1 { line-height: 1.08; }
+  .hero-copy p { font-size: 14px; line-height: 1.65; }
+  .hero-art img { height: clamp(210px, 62vw, 300px); }
+  .shipping-banner { border-radius: 8px; }
+  .section-head h2 { font-size: clamp(27px, 7vw, 32px); }
+  .section-head p { font-size: 13px; line-height: 1.5; }
+  .controls { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .controls input[type="search"] { min-height: 46px; font-size: 16px; }
+  .controls select, .controls button { min-height: 44px; font-size: 13px; }
+  .count { font-size: 12px; }
+  .catalog { gap: 11px; }
+  .photo-strip, .photo-strip img { height: clamp(145px, 42vw, 190px); }
+  .product-info { padding: 10px 10px 12px; }
+  .product-info h3, .product-card h3 { font-size: 15px; line-height: 1.3; min-height: 0; }
+  .dimensions { font-size: 11px; line-height: 1.45; min-height: 0; }
+  .product-info .price, .product-card .price { font-size: 17px; }
+  .buy, .card-action { min-height: 42px; font-size: 11px; }
+  .featured-card img { height: clamp(135px, 38vw, 175px); }
+  .featured-card strong { font-size: 15px; }
+  .editorial-head p, .story-copy p, .instagram-copy p { font-size: 14px; line-height: 1.7; }
+  .step p, .custom-order p, .faq-answer { font-size: 13px; line-height: 1.7; }
+  .faq-item summary { font-size: 15px; line-height: 1.4; }
+  .detail-wrap { padding: 0 12px; }
+  .detail-gallery img { height: min(78vw, 340px); }
+  .detail-info p { font-size: 14px; line-height: 1.7; }
+  .detail-meta div { font-size: 12px; line-height: 1.5; }
+  .detail-wa, .add-cart { min-height: 46px; font-size: 12px; }
+  .cart-form input { min-height: 46px; font-size: 16px; }
+  .cart-footer .detail-wa { min-height: 48px; }
+  .cart-fab, .whatsapp-fab { bottom: calc(14px + env(safe-area-inset-bottom)); }
+  .cart-fab { right: 12px; }
+  .whatsapp-fab { left: 12px; }
+  footer { padding-bottom: calc(30px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 380px) {
+  .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-inline: 8px; }
+  .photo-strip, .photo-strip img { height: 132px; }
+  .product-info { padding: 8px; }
+  .product-info h3, .product-card h3 { font-size: 14px; }
+  .product-info .price, .product-card .price { font-size: 16px; }
+  .dimensions { font-size: 10px; }
+  .buy, .card-action { font-size: 10px; padding-inline: 5px; }
+  .featured-grid { gap: 8px; }
+  .featured-card img { height: 125px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+</style></head>
+<body>
+<div class="topbar">Feito à mão · Detalhes que aproximam a natureza</div>
+<header>
+<img alt="Serafim Arte em Madeira" class="logo" src="logo-serafim.png"/>
+<p>Peças artesanais em madeira</p>
+</header>
+<nav><a href="#inicio">Início</a><a href="#catalogo" id="productsNav">Produtos</a><a href="#instagram">Instagram</a><a href="#como-comprar">Como comprar</a><a href="#duvidas">Dúvidas</a><a href="#sobre">Nossa história</a><div class="contact-menu"><button aria-expanded="false" id="contactToggle" type="button">Contato ▾</button><div class="contact-pop" hidden="" id="contactPop"><a href="https://wa.me/555198290850" rel="noopener" target="_blank"><span class="app-icon whatsapp"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 2a9.8 9.8 0 0 0-8.4 14.85L2.3 22l5.3-1.25A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.05-1.1l-.3-.18-3.15.75.8-3.05-.2-.32A8 8 0 1 1 12 20Zm4.4-5.95c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.46-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.3.98 2.46c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.5.58.18 1.1.15 1.52.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" fill="currentColor"></path></svg></span> WhatsApp <small>(51) 98290-0850</small></a><a href="https://www.instagram.com/serafim_arteemmadeira/" rel="noopener" target="_blank"><span class="app-icon instagram"><svg aria-hidden="true" viewbox="0 0 24 24"><rect fill="none" height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"></rect><circle cx="12" cy="12" fill="none" r="4" stroke="currentColor" stroke-width="2"></circle><circle cx="17.5" cy="6.5" fill="currentColor" r="1.2"></circle></svg></span> Instagram <small>@serafim_arteemmadeira</small></a></div></div><button class="cart-nav" id="cartOpen" type="button">🛒 Carrinho <b id="cartCount">0</b></button></nav>
+<main>
+<section class="hero" id="inicio">
+<div class="hero-copy"><span class="eyebrow">Natureza em cada detalhe</span>
+<h1>Um toque de madeira,<br/>um encanto no jardim.</h1>
+<p>Conheça peças artesanais feitas para levar charme, aconchego e personalidade aos espaços ao ar livre. Escolha seu modelo e fale diretamente com a Serafim.</p>
+
+</div>
+<div class="hero-art"><img alt="Tratador com Piscina — peça artesanal em madeira" src="fotos/produto-09.jpg" fetchpriority="high" decoding="async"/></div>
+</section>
+<div class="shipping-banner"><span class="shipping-icon">✈</span><div><strong>Enviamos para todo o Brasil!</strong><p>Consulte as opções de envio e o prazo para sua região diretamente pelo WhatsApp.</p></div></div>
+<section class="featured-section" id="destaques"><div class="section-head" style="padding:0;margin-bottom:22px"><div><h2>Peças em destaque</h2><p>Alguns dos modelos que merecem um olhar especial.</p></div></div><div class="featured-grid" id="featuredGrid"></div></section>
+<section id="catalogo">
+<div class="section-head"><div><h2>Nosso catálogo</h2><p>Encontre a peça que combina com seu espaço.</p></div></div>
+<div class="controls" aria-label="Ferramentas do catálogo">
+<input aria-label="Buscar produto" id="search" placeholder="Buscar produtos pelo nome..." type="search"/>
+<select aria-label="Filtrar por categoria" class="catalog-select" id="categoryFilter"><option value="all">Todas as categorias</option><option value="casas">Casas e casinhas</option><option value="tratadores">Tratadores e comedouros</option><option value="decoracao">Decoração e jardim</option></select>
+<select aria-label="Ordenar produtos" class="catalog-select" id="sortProducts"><option value="default">Ordenar: Destaques</option><option value="asc">Menor preço</option><option value="desc">Maior preço</option></select>
+<button class="clear-filters" id="clearFilters" type="button">Limpar filtros</button>
+<span class="count" id="count">27 produtos</span></div>
+<div class="catalog" id="products">
+<article aria-label="Ver detalhes: Tratador com Piscina" class="product-card" data-description="Tratador com piscina. Não acompanha o pé/base. Medidas: 45 × 40 × 30 cm." data-dimensions="45 × 40 × 30 cm" data-name="tratador com piscina" role="button" tabindex="0">
+<div class="photo-strip"><span class="best-seller-badge">MAIS VENDIDA</span><img alt="Tratador com Piscina — foto 1" loading="lazy" src="fotos/produto-09.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 07</span>
+<h3>Tratador com Piscina</h3>
+<p class="price">R$ 380,00</p>
+<p class="dimensions">45 × 40 × 30 cm</p>
+</div>
+</article><article aria-label="Ver detalhes: Casa da Floreira e Iluminação" class="product-card" data-description="Casa da floreira com iluminação. Medidas: 35 × 25 × 30 cm." data-dimensions="35 × 25 × 30 cm" data-name="casa da floreira e iluminação" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa da Floreira e Iluminação — foto 1" loading="lazy" src="fotos/produto-02.jpg"/><img alt="Casa da Floreira e Iluminação — foto 2" loading="lazy" src="fotos/produto-03.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 02</span>
+<h3>Casa da Floreira e Iluminação</h3>
+<p class="price">R$ 350,00</p>
+<p class="dimensions">35 × 25 × 30 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Gracioneta – Casinha do André Marques" class="product-card" data-description="Casinha com iluminação em LED. Medidas: 25 × 25 × 25 cm." data-dimensions="25 × 25 × 25 cm" data-name="gracioneta – casinha do andré marques" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Gracioneta – Casinha do André Marques — foto 1" loading="lazy" src="fotos/produto-04.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 03</span>
+<h3>Gracioneta – Casinha do André Marques</h3>
+<p class="price">R$ 350,00</p>
+<p class="dimensions">25 × 25 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa da Montanha" class="product-card" data-description="Casa da Montanha em madeira. Medidas: 40 × 30 × 45 cm." data-dimensions="40 × 30 × 45 cm" data-name="casa da montanha" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa da Montanha — foto 1" loading="lazy" src="fotos/produto-05.jpg"/><img alt="Casa da Montanha — foto 2" loading="lazy" src="fotos/produto-06.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 04</span>
+<h3>Casa da Montanha</h3>
+<p class="price">R$ 550,00</p>
+<p class="dimensions">40 × 30 × 45 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Hobbit" class="product-card" data-description="Casa Hobbit artesanal. Medidas: 24 × 24 × 24 cm." data-dimensions="24 × 24 × 24 cm" data-name="casa hobbit" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Hobbit — foto 1" loading="lazy" src="fotos/produto-07.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 05</span>
+<h3>Casa Hobbit</h3>
+<p class="price">R$ 390,00</p>
+<p class="dimensions">24 × 24 × 24 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Tratador com Deck e Pergolado" class="product-card" data-description="Tratador com deck e pergolado. Não acompanha o pé/base." data-dimensions="Tratador: 45 × 30 × 40 cm · Deck: 30 × 20 cm" data-name="tratador com deck e pergolado" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Tratador com Deck e Pergolado — foto 1" loading="lazy" src="fotos/produto-08.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 06</span>
+<h3>Tratador com Deck e Pergolado</h3>
+<p class="price">R$ 450,00</p>
+<p class="dimensions">Tratador: 45 × 30 × 40 cm · Deck: 30 × 20 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casinha" class="product-card" data-description="Peça artesanal em madeira. Altura de 25 cm, largura de 14 cm e profundidade de 20 cm." data-dimensions="25 × 14 × 20 cm" data-name="casinha" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casinha — foto 1" loading="lazy" src="fotos/produto-01.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 01</span>
+<h3>Casinha</h3>
+<p class="price">R$ 90,00</p>
+<p class="dimensions">25 × 14 × 20 cm</p>
+</div>
+</article><article aria-label="Ver detalhes: Tratador" class="product-card" data-description="Tratador artesanal em madeira. Não acompanha o pé/base." data-dimensions="Medidas não informadas" data-name="tratador" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Tratador — foto 1" loading="lazy" src="fotos/produto-10.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 08</span>
+<h3>Tratador</h3>
+<p class="price">R$ 350,00</p>
+<p class="dimensions">Medidas não informadas</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Tratador com Piscina, Pergolado e Chaminé" class="product-card" data-description="Tratador com piscina, pergolado e chaminé." data-dimensions="Medidas não informadas" data-name="tratador com piscina, pergolado e chaminé" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Tratador com Piscina, Pergolado e Chaminé — foto 1" loading="lazy" src="fotos/produto-11.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 09</span>
+<h3>Tratador com Piscina, Pergolado e Chaminé</h3>
+<p class="price">R$ 550,00</p>
+<p class="dimensions">Medidas não informadas</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa da Fazenda" class="product-card" data-description="Casa da Fazenda em madeira. Medidas: 25 × 25 × 25 cm." data-dimensions="25 × 25 × 25 cm" data-name="casa da fazenda" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa da Fazenda — foto 1" loading="lazy" src="fotos/produto-12.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 10</span>
+<h3>Casa da Fazenda</h3>
+<p class="price">R$ 250,00</p>
+<p class="dimensions">25 × 25 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Tratador Parede" class="product-card" data-description="Tratador de parede. Medidas: 25 × 35 × 20 cm." data-dimensions="25 × 35 × 20 cm" data-name="tratador parede" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Tratador Parede — foto 1" loading="lazy" src="fotos/produto-13.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 11</span>
+<h3>Tratador Parede</h3>
+<p class="price">R$ 190,00</p>
+<p class="dimensions">25 × 35 × 20 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa da Floreira" class="product-card" data-description="Casa da Floreira. Não acompanha o pé/base. Medidas: 35 × 25 × 45 cm." data-dimensions="35 × 25 × 45 cm" data-name="casa da floreira" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa da Floreira — foto 1" loading="lazy" src="fotos/produto-14.jpg"/><img alt="Casa da Floreira — foto 2" loading="lazy" src="fotos/produto-15.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 12</span>
+<h3>Casa da Floreira</h3>
+<p class="price">R$ 290,00</p>
+<p class="dimensions">35 × 25 × 45 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Moinho" class="product-card" data-description="Moinho artesanal em madeira. Medidas: 35 × 20 × 25 cm." data-dimensions="35 × 20 × 25 cm" data-name="moinho" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Moinho — foto 1" loading="lazy" src="fotos/produto-16.jpg"/><img alt="Moinho — foto 2" loading="lazy" src="fotos/produto-17.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 13</span>
+<h3>Moinho</h3>
+<p class="price">R$ 250,00</p>
+<p class="dimensions">35 × 20 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Porta Laranja" class="product-card" data-description="Casa Porta Laranja. Medidas: 35 × 24 × 45 cm." data-dimensions="35 × 24 × 45 cm" data-name="casa porta laranja" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Porta Laranja — foto 1" loading="lazy" src="fotos/produto-18.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 14</span>
+<h3>Casa Porta Laranja</h3>
+<p class="price">R$ 250,00</p>
+<p class="dimensions">35 × 24 × 45 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa do Cuco" class="product-card" data-description="Casa do Cuco artesanal em madeira." data-dimensions="Medidas não informadas" data-name="casa do cuco" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa do Cuco — foto 1" loading="lazy" src="fotos/produto-19.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 15</span>
+<h3>Casa do Cuco</h3>
+<p class="price">R$ 130,00</p>
+<p class="dimensions">Medidas não informadas</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Cultive Amor" class="product-card" data-description="Peça Cultive Amor. Medidas: 25 × 20 × 25 cm." data-dimensions="25 × 20 × 25 cm" data-name="cultive amor" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Cultive Amor — foto 1" loading="lazy" src="fotos/produto-20.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 16</span>
+<h3>Cultive Amor</h3>
+<p class="price">R$ 160,00</p>
+<p class="dimensions">25 × 20 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa da Varanda" class="product-card" data-description="Casa da Varanda. Medidas: 35 × 20 × 25 cm." data-dimensions="35 × 20 × 25 cm" data-name="casa da varanda" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa da Varanda — foto 1" loading="lazy" src="fotos/produto-21.jpg"/><img alt="Casa da Varanda — foto 2" loading="lazy" src="fotos/produto-22.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 17</span>
+<h3>Casa da Varanda</h3>
+<p class="price">R$ 250,00</p>
+<p class="dimensions">35 × 20 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Condomínio" class="product-card" data-description="Condomínio de casinhas em madeira. Medidas: 45 × 25 × 30 cm." data-dimensions="45 × 25 × 30 cm" data-name="condomínio" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Condomínio — foto 1" loading="lazy" src="fotos/produto-23.jpg"/><img alt="Condomínio — foto 2" loading="lazy" src="fotos/produto-24.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 18</span>
+<h3>Condomínio</h3>
+<p class="price">R$ 290,00</p>
+<p class="dimensions">45 × 25 × 30 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Encanto da Floresta" class="product-card" data-description="Peça Encanto da Floresta. Medidas: 35 × 20 × 25 cm." data-dimensions="35 × 20 × 25 cm" data-name="encanto da floresta" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Encanto da Floresta — foto 1" loading="lazy" src="fotos/produto-25.jpg"/><img alt="Encanto da Floresta — foto 2" loading="lazy" src="fotos/produto-26.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 19</span>
+<h3>Encanto da Floresta</h3>
+<p class="price">R$ 250,00</p>
+<p class="dimensions">35 × 20 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Amora" class="product-card" data-description="Casa Amora. Medidas: 40 × 25 × 35 cm." data-dimensions="40 × 25 × 35 cm" data-name="casa amora" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Amora — foto 1" loading="lazy" src="fotos/produto-27.jpg"/><img alt="Casa Amora — foto 2" loading="lazy" src="fotos/produto-28.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 20</span>
+<h3>Casa Amora</h3>
+<p class="price">R$ 350,00</p>
+<p class="dimensions">40 × 25 × 35 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Celeiro" class="product-card" data-description="Celeiro artesanal em madeira. Medidas: 35 × 25 × 45 cm." data-dimensions="35 × 25 × 45 cm" data-name="celeiro" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Celeiro — foto 1" loading="lazy" src="fotos/produto-29.jpg"/><img alt="Celeiro — foto 2" loading="lazy" src="fotos/produto-30.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 21</span>
+<h3>Celeiro</h3>
+<p class="price">R$ 290,00</p>
+<p class="dimensions">35 × 25 × 45 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Secília" class="product-card" data-description="Casa Secília amarela. Medidas: 40 × 25 × 30 cm." data-dimensions="40 × 25 × 30 cm" data-name="casa secília" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Secília — foto 1" loading="lazy" src="fotos/produto-31.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 22</span>
+<h3>Casa Secília</h3>
+<p class="price">R$ 350,00</p>
+<p class="dimensions">40 × 25 × 30 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Lenhador" class="product-card" data-description="Casa Lenhador. Medidas: 20 × 25 × 30 cm." data-dimensions="20 × 25 × 30 cm" data-name="casa lenhador" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Lenhador — foto 1" loading="lazy" src="fotos/produto-33.jpg"/><img alt="Casa Lenhador — foto 2" loading="lazy" src="fotos/produto-34.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 23</span>
+<h3>Casa Lenhador</h3>
+<p class="price">R$ 160,00</p>
+<p class="dimensions">20 × 25 × 30 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa da Porta Grande" class="product-card" data-description="Casa da Porta Grande. Medidas: 35 × 25 × 30 cm." data-dimensions="35 × 25 × 30 cm" data-name="casa da porta grande" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa da Porta Grande — foto 1" loading="lazy" src="fotos/produto-35.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 24</span>
+<h3>Casa da Porta Grande</h3>
+<p class="price">R$ 290,00</p>
+<p class="dimensions">35 × 25 × 30 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Igreja" class="product-card" data-description="Igreja artesanal em madeira. Medidas: 35 × 25 × 25 cm." data-dimensions="35 × 25 × 25 cm" data-name="igreja" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Igreja — foto 1" loading="lazy" src="fotos/produto-36.jpg"/><img alt="Igreja — foto 2" loading="lazy" src="fotos/produto-37.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 25</span>
+<h3>Igreja</h3>
+<p class="price">R$ 290,00</p>
+<p class="dimensions">35 × 25 × 25 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Azul" class="product-card" data-description="Casa Azul. Medidas: 35 × 25 × 30 cm." data-dimensions="35 × 25 × 30 cm" data-name="casa azul" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Azul — foto 1" loading="lazy" src="fotos/produto-38.jpg"/><img alt="Casa Azul — foto 2" loading="lazy" src="fotos/produto-39.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 26</span>
+<h3>Casa Azul</h3>
+<p class="price">R$ 350,00</p>
+<p class="dimensions">35 × 25 × 30 cm</p>
+</div>
+</article>
+<article aria-label="Ver detalhes: Casa Correio" class="product-card" data-description="Casa Correio. Não acompanha o pé/base. Medidas: 35 × 25 × 30 cm." data-dimensions="35 × 25 × 30 cm" data-name="casa correio" role="button" tabindex="0">
+<div class="photo-strip"><img alt="Casa Correio — foto 1" loading="lazy" src="fotos/produto-40.jpg"/></div>
+<div class="product-info">
+<span class="product-number">PEÇA ARTESANAL · 27</span>
+<h3>Casa Correio</h3>
+<p class="price">R$ 250,00</p>
+<p class="dimensions">35 × 25 × 30 cm</p>
+</div>
+</article></div>
+</section>
+
+<section class="instagram-section" id="instagram" aria-labelledby="instagramTitle">
+  <div class="instagram-wrap">
+    <div class="instagram-stat" aria-label="115 mil seguidores no Instagram">
+      <div class="instagram-logo" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"></circle></svg></div>
+      <strong>115 mil</strong>
+      <span>seguidores no Instagram</span>
+    </div>
+    <div class="instagram-copy">
+      <span class="eyebrow">Faça parte da nossa comunidade</span>
+      <h2 id="instagramTitle">Tem muito mais da Serafim esperando por você.</h2>
+      <p>Mais de 115 mil seguidores acompanham a Serafim Arte em Madeira no Instagram. Siga nosso perfil para conhecer outras criações, acompanhar as novidades e ficar por dentro do nosso trabalho.</p>
+      <a class="instagram-cta" href="https://www.instagram.com/serafim_arteemmadeira/" target="_blank" rel="noopener">Acompanhar no Instagram <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="how-section" id="como-comprar"><div class="editorial-head"><h2>Como comprar</h2><p>É simples: escolha sua peça e converse diretamente com quem faz.</p></div><div class="steps"><article class="step"><span class="step-number">1</span><h3>Escolha sua peça</h3><p>Explore o catálogo, veja as fotos, medidas e detalhes de cada criação. Adicione ao carrinho os produtos que gostar.</p></article><article class="step"><span class="step-number">2</span><h3>Informe seus dados</h3><p>No carrinho, informe seu nome e CEP para solicitar a consulta de envio para sua região.</p></article><article class="step"><span class="step-number">3</span><h3>Converse pelo WhatsApp</h3><p>Seu pedido será enviado pelo WhatsApp. A Serafim confirma disponibilidade, frete, prazo e formas de pagamento com você.</p></article></div><div class="custom-order"><div><h3>Tem uma ideia ou quer algo personalizado?</h3><p>Entre em contato pelo WhatsApp para consultar a possibilidade de encomendar um modelo personalizado. Vamos conversar sobre sua ideia!</p></div><a href="https://wa.me/555198290850?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20a%20possibilidade%20de%20encomendar%20uma%20pe%C3%A7a%20personalizada." target="_blank" rel="noopener">Consultar personalização</a></div></section>
+
+<section class="faq-section" id="duvidas" aria-labelledby="faqTitle">
+  <div class="faq-wrap">
+    <div class="editorial-head"><h2 id="faqTitle">Perguntas frequentes</h2><p>Confira algumas dúvidas comuns. Se precisar de mais informações, fale com a gente pelo WhatsApp.</p></div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>É possível encomendar modelos personalizados?</summary>
+        <div class="faq-answer"><p>Sim! Você pode entrar em contato conosco pelo WhatsApp e contar como imagina sua peça. Por lá, conversamos sobre os detalhes da personalização e avaliamos juntos a encomenda e seu preço.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Como consultar o valor do frete?</summary>
+        <div class="faq-answer"><p>Depois que você enviar sua solicitação de compra pelo WhatsApp, consultamos as opções de envio junto à transportadora. Com o CEP informado, verificamos as alternativas disponíveis e retornamos com a forma de envio mais adequada e o valor do frete, buscando o melhor custo para você.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Como faço para comprar?</summary>
+        <div class="faq-answer"><p>Escolha os produtos no catálogo e adicione ao carrinho. Em seguida, abra o carrinho, informe seu nome e CEP e clique em “Consultar pedido no WhatsApp”. As informações dos produtos serão enviadas para nosso atendimento. Depois, basta aguardar nosso retorno pelo WhatsApp para conversarmos sobre disponibilidade, frete e os próximos passos da compra.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="story-section" id="sobre"><div class="story-wrap"><div class="story-video-frame">
+  <video controls playsinline preload="metadata" poster="videos/historia-poster.jpg" aria-label="Vídeo da história da Serafim Arte em Madeira">
+    <source src="videos/historia-serafim.mp4" type="video/mp4"/>
+    Seu navegador não conseguiu reproduzir este vídeo. Tente abrir em outro navegador.
+  </video>
+</div><div class="story-copy"><span class="eyebrow">Nossa história</span><h2>Uma homenagem que ganhou forma em madeira.</h2><p>A Serafim Arte em Madeira nasceu do carinho de Rodrigo pelo trabalho artesanal e pelo significado que cada peça pode carregar. O nome Serafim é uma homenagem ao seu avô — uma lembrança de família que segue viva em cada criação.</p><p>Mais do que produzir objetos de madeira, Rodrigo busca criar peças que levem aconchego, beleza e personalidade aos jardins e espaços de quem as recebe. Cada casinha, tratador e detalhe é feito com dedicação, respeitando o encanto único do trabalho feito à mão.</p><p>Assim, uma homenagem se transforma em propósito: manter uma memória viva e compartilhar, por meio da madeira, um pouco desse carinho com cada cliente.</p></div></div></section>
+</main>
+<footer><div class="footer-grid"><div class="footer-brand"><strong>Serafim</strong><br/>ARTE EM MADEIRA<p>Peças artesanais em madeira para levar charme e personalidade ao seu jardim.</p></div><div><h4>Atendimento</h4><p><a href="https://wa.me/555198290850" rel="noopener" target="_blank">WhatsApp: (51) 98290-0850</a><br/><a href="https://www.instagram.com/serafim_arteemmadeira/" rel="noopener" target="_blank">Instagram: @serafim_arteemmadeira</a></p><p>Fale diretamente com a Serafim para consultar disponibilidade e fazer seu pedido.</p></div><div><h4>Informações</h4><p><a href="#como-comprar">Como comprar</a><br/><a href="#duvidas">Perguntas frequentes</a><br/><a href="#instagram">Instagram</a><br/><a href="#sobre">Nossa história</a></p><p>Enviamos para todo o Brasil. Frete e prazo sob consulta.</p></div></div><div class="footer-bottom">© <span id="currentYear">2026</span> Serafim Arte em Madeira · Feito com carinho em cada detalhe.</div></footer>
+<section aria-hidden="true" class="detail-page" id="detailPage"><div class="detail-top"><img alt="Serafim Arte em Madeira" class="detail-logo" src="logo-serafim.png"/><button id="detailBack" type="button">← Voltar ao catálogo</button></div><div class="detail-wrap"><div class="detail-gallery"><img alt="" id="detailImage" src=""/><div class="detail-thumbs" id="detailThumbs"></div><div class="gallery-count" id="galleryCount"></div></div><div class="detail-info"><span class="product-number">PEÇA ARTESANAL</span><h2 id="detailName"></h2><div class="price" id="detailPrice"></div><p id="detailDescription"></p><div class="detail-meta"><div> <strong>Dimensões:</strong> <span id="detailDimensions"></span></div><div><strong>Produção artesanal:</strong> cada peça tem seus próprios detalhes.</div><div><strong>Entrega:</strong> consulte frete e prazo pelo WhatsApp.</div></div><button class="add-cart" id="addToCart" type="button">Adicionar ao carrinho</button><a class="detail-wa" href="#" id="detailWhatsApp" rel="noopener" target="_blank">Consultar no WhatsApp</a></div></div></section><section aria-hidden="true" class="cart-page" id="cartPage"><div class="cart-panel"><div class="cart-heading"><h2>Seu carrinho</h2><button aria-label="Fechar carrinho" id="cartClose" type="button">✕</button></div><div class="cart-items" id="cartItems"></div><div class="cart-footer"><div class="cart-total"><span>Total dos produtos</span><strong id="cartTotal">R$ 0,00</strong></div><p>O valor do envio é consultado separadamente pelo WhatsApp. Preencha seus dados para continuar.</p><div class="cart-form"><label for="customerName">Nome<input autocomplete="name" id="customerName" name="customerName" placeholder="Seu nome" required="" type="text"/></label><label for="customerCep">CEP<input autocomplete="postal-code" id="customerCep" inputmode="numeric" maxlength="9" name="customerCep" placeholder="00000-000" required="" type="text"/></label></div><button class="detail-wa" disabled="" id="checkoutWhatsApp" type="button">Consultar pedido no WhatsApp</button></div></div></section>
+<div class="image-lightbox" id="imageLightbox" role="dialog" aria-label="Visualização ampliada da foto"><button id="lightboxClose" type="button" aria-label="Fechar imagem">×</button><img id="lightboxImage" alt="Foto ampliada do produto"/></div>
+<button aria-label="Abrir carrinho" class="cart-fab" id="cartFab" type="button">🛒 <span id="cartFabText">Ver carrinho</span><strong id="cartFabCount">0</strong></button>
+<a aria-label="Fale com a Serafim pelo WhatsApp" class="whatsapp-fab" href="https://wa.me/555198290850?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Serafim%20Arte%20em%20Madeira%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9.8 9.8 0 0 0-8.4 14.85L2.3 22l5.3-1.25A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.05-1.1l-.3-.18-3.15.75.8-3.05-.2-.32A8 8 0 1 1 12 20Zm4.4-5.95c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.46-.4-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.3.98 2.46c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.5.58.18 1.1.15 1.52.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg><span>Fale pelo WhatsApp</span></a>
+<script>
+const search=document.getElementById('search');
+const cards=[...document.querySelectorAll('.product-card')];
+const count=document.getElementById('count');
+const categoryFilter=document.getElementById('categoryFilter');
+const sortProducts=document.getElementById('sortProducts');
+const clearFilters=document.getElementById('clearFilters');
+const normalize=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR').trim();
+const originalOrder=new Map(cards.map((card,index)=>[card,index]));
+function categoryOf(card){const name=normalize(card.dataset.name);if(name.includes('tratador'))return 'tratadores';if(name.includes('casa')||name.includes('casinha')||name.includes('condominio')||name.includes('celeiro')||name.includes('igreja'))return 'casas';return 'decoracao';}
+function priceOf(card){const raw=card.querySelector('.price')?.textContent||'';return Number(raw.replace(/[^0-9,]/g,'').replace(/\./g,'').replace(',','.'))||0;}
+cards.forEach(card=>{const info=card.querySelector('.product-info');if(info&&!info.querySelector('.card-action')){const action=document.createElement('div');action.className='card-action';action.innerHTML='<span>Ver detalhes e comprar</span><span aria-hidden="true">→</span>';info.append(action);}});
+function filterProducts(){const q=normalize(search.value);const category=categoryFilter.value;const sort=sortProducts.value;let visible=0;const ordered=[...cards];if(sort==='asc')ordered.sort((a,b)=>priceOf(a)-priceOf(b)||originalOrder.get(a)-originalOrder.get(b));else if(sort==='desc')ordered.sort((a,b)=>priceOf(b)-priceOf(a)||originalOrder.get(a)-originalOrder.get(b));else ordered.sort((a,b)=>originalOrder.get(a)-originalOrder.get(b));const fragment=document.createDocumentFragment();ordered.forEach(card=>{const text=normalize(card.innerText+' '+card.dataset.name+' '+(card.dataset.description||''));const show=text.includes(q)&&(category==='all'||categoryOf(card)===category);card.hidden=!show;if(show)visible++;fragment.append(card);});document.getElementById('products').append(fragment);count.textContent=visible+' de '+cards.length+(cards.length===1?' produto':' produtos');}
+search.addEventListener('input',filterProducts);search.addEventListener('search',filterProducts);search.addEventListener('change',filterProducts);categoryFilter.addEventListener('change',filterProducts);sortProducts.addEventListener('change',filterProducts);clearFilters.addEventListener('click',()=>{search.value='';categoryFilter.value='all';sortProducts.value='default';filterProducts();});
+filterProducts();
+const page=document.getElementById('detailPage'), back=document.getElementById('detailBack');
+const img=document.getElementById('detailImage'), thumbs=document.getElementById('detailThumbs');
+function closeDetail(){page.classList.remove('open');page.setAttribute('aria-hidden','true');document.body.style.overflow='';if(location.hash.startsWith('#produto-'))history.replaceState(null,'',location.pathname+location.search);}
+function openDetail(card){const name=card.querySelector('h3')?.textContent.trim()||'Produto';const price=card.querySelector('.price')?.textContent.trim()||'Consulte o preço';const photos=[...card.querySelectorAll('.photo-strip img')].map(x=>({src:x.getAttribute('src'),alt:x.alt}));if(!photos.length)return;document.getElementById('detailName').textContent=name;document.getElementById('detailPrice').textContent=price;document.getElementById('detailDescription').textContent=card.dataset.description||'Peça artesanal em madeira.';document.getElementById('detailDimensions').textContent=card.dataset.dimensions||'Consulte as dimensões';const wa='https://wa.me/555198290850?text='+encodeURIComponent('Olá! Tenho interesse no produto '+name+'. Gostaria de consultar disponibilidade e entrega.');document.getElementById('detailWhatsApp').href=wa;thumbs.replaceChildren();const galleryCount=document.getElementById('galleryCount');function showPhoto(photo,index){img.src=photo.src;img.alt=photo.alt;galleryCount.textContent=(index+1)+' de '+photos.length+' fotos';[...thumbs.children].forEach((b,i)=>b.classList.toggle('active',i===index));}photos.forEach((photo,index)=>{const b=document.createElement('button');b.type='button';const t=document.createElement('img');t.src=photo.src;t.alt=photo.alt;b.append(t);b.addEventListener('click',()=>showPhoto(photo,index));thumbs.append(b);});showPhoto(photos[0],0);page.classList.add('open');page.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';history.replaceState(null,'','#produto-'+cards.indexOf(card));}
+cards.forEach(card=>{card.addEventListener('click',e=>{if(e.target.closest('a'))return;openDetail(card);});card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openDetail(card);}});});
+back.addEventListener('click',closeDetail);page.addEventListener('click',e=>{if(e.target===page)closeDetail();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&page.classList.contains('open'))closeDetail();});
+
+// Menu de contato e carrinho de compras
+const contactToggle=document.getElementById('contactToggle'),contactPop=document.getElementById('contactPop');
+contactToggle.addEventListener('click',()=>{const isOpen=!contactPop.hidden;contactPop.hidden=isOpen;contactToggle.setAttribute('aria-expanded',String(!isOpen));});
+document.addEventListener('click',e=>{if(!e.target.closest('.contact-menu')){contactPop.hidden=true;contactToggle.setAttribute('aria-expanded','false');}});
+const cartPage=document.getElementById('cartPage'),cartItemsEl=document.getElementById('cartItems');let cart=[];let activeProduct=null;
+function money(n){return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});}
+function parsePrice(s){return Number((s||'').replace(/[^0-9,]/g,'').replace('.','').replace(',','.'))||0;}
+function drawCart(){cartItemsEl.replaceChildren();let qty=cart.reduce((a,x)=>a+x.qty,0);document.getElementById('cartCount').textContent=qty;document.getElementById('cartTotal').textContent=money(cart.reduce((a,x)=>a+x.price*x.qty,0));const fab=document.getElementById('cartFab');document.getElementById('cartFabCount').textContent=qty;document.getElementById('cartFabText').textContent=qty===1?'produto no carrinho':'produtos no carrinho';fab.classList.toggle('visible',qty>0);if(typeof validateCheckout==='function')validateCheckout();if(!cart.length){const p=document.createElement('p');p.textContent='Seu carrinho está vazio. Abra um produto e clique em “Adicionar ao carrinho”.';cartItemsEl.append(p);return;}cart.forEach((item,i)=>{const row=document.createElement('div');row.className='cart-line';const photo=document.createElement('img');photo.src=item.image;photo.alt=item.name;const info=document.createElement('div');const title=document.createElement('strong');title.textContent=item.name;const detail=document.createElement('small');detail.textContent=money(item.price)+' cada';const controls=document.createElement('div');controls.className='cart-qty';const minus=document.createElement('button');minus.type='button';minus.textContent='−';minus.setAttribute('aria-label','Diminuir quantidade');minus.addEventListener('click',()=>{item.qty--;if(item.qty<=0)cart.splice(i,1);drawCart();});const number=document.createElement('span');number.textContent=item.qty;const plus=document.createElement('button');plus.type='button';plus.textContent='+';plus.setAttribute('aria-label','Aumentar quantidade');plus.addEventListener('click',()=>{item.qty++;drawCart();});controls.append(minus,number,plus);info.append(title,detail,controls);const remove=document.createElement('button');remove.type='button';remove.textContent='Remover';remove.addEventListener('click',()=>{cart.splice(i,1);drawCart();});row.append(photo,info,remove);cartItemsEl.append(row);});}
+function openCart(){drawCart();cartPage.classList.add('open');cartPage.setAttribute('aria-hidden','false');}
+function closeCart(){cartPage.classList.remove('open');cartPage.setAttribute('aria-hidden','true');}
+document.getElementById('cartOpen').addEventListener('click',openCart);document.getElementById('cartFab').addEventListener('click',openCart);document.getElementById('cartClose').addEventListener('click',closeCart);cartPage.addEventListener('click',e=>{if(e.target===cartPage)closeCart();});
+const originalOpenDetail=openDetail;
+openDetail=function(card){activeProduct={name:card.querySelector('h3').textContent.trim(),price:parsePrice(card.querySelector('.price')?.textContent),description:card.dataset.description||'',dimensions:card.dataset.dimensions||'',image:card.querySelector('.photo-strip img')?.getAttribute('src')||''};originalOpenDetail(card);};
+document.getElementById('addToCart').addEventListener('click',()=>{if(!activeProduct)return;const found=cart.find(x=>x.name===activeProduct.name);if(found)found.qty++;else cart.push({...activeProduct,qty:1});drawCart();const btn=document.getElementById('addToCart');btn.textContent='Adicionado ao carrinho ✓';setTimeout(()=>{btn.textContent='Adicionar ao carrinho';},1400);});
+const customerName=document.getElementById('customerName'),customerCep=document.getElementById('customerCep'),checkoutButton=document.getElementById('checkoutWhatsApp');function validateCheckout(){const cepDigits=customerCep.value.replace(/\D/g,'');checkoutButton.disabled=!(customerName.value.trim().length>0&&cepDigits.length===8&&cart.length>0);}customerName.addEventListener('input',validateCheckout);customerCep.addEventListener('input',()=>{let digits=customerCep.value.replace(/\D/g,'').slice(0,8);customerCep.value=digits.length>5?digits.slice(0,5)+'-'+digits.slice(5):digits;validateCheckout();});document.getElementById('checkoutWhatsApp').addEventListener('click',()=>{const name=customerName.value.trim(),cep=customerCep.value.replace(/\D/g,'');if(!cart.length||!name||cep.length!==8){validateCheckout();return;}const lines=cart.map(x=>'- '+x.qty+'x '+x.name+' — '+money(x.price*x.qty));const total=cart.reduce((a,x)=>a+x.price*x.qty,0);const msg='Olá! Gostaria de consultar este pedido da Serafim Arte em Madeira.\n\nNome: '+name+'\nCEP: '+customerCep.value+'\n\nProdutos:\n'+lines.join('\n')+'\n\nTotal dos produtos: '+money(total)+'\nGostaria de consultar o valor do frete e o prazo de entrega.';window.open('https://wa.me/555198290850?text='+encodeURIComponent(msg),'_blank','noopener');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart();});
+
+// Cards de destaque usam os próprios produtos do catálogo.
+const featuredGrid=document.getElementById('featuredGrid');
+const featuredNames=['tratador com piscina','casa da montanha','casa da floreira e iluminação'];
+featuredNames.forEach((term)=>{const card=cards.find(c=>normalize(c.dataset.name).includes(term));if(!card)return;const button=document.createElement('button');button.type='button';button.className='featured-card';const photo=document.createElement('img');photo.src=card.querySelector('.photo-strip img').getAttribute('src');photo.alt=card.querySelector('h3').textContent;const body=document.createElement('div');const tag=document.createElement('small');tag.textContent=term==='tratador com piscina'?'Mais vendida':'Peça em destaque';const title=document.createElement('strong');title.textContent=card.querySelector('h3').textContent;const price=document.createElement('span');price.textContent=card.querySelector('.price').textContent;body.append(tag,title,price);button.append(photo,body);button.addEventListener('click',()=>{openDetail(card);window.scrollTo({top:0,behavior:'smooth'});});featuredGrid.append(button);});
+// Visualização ampliada das fotografias na página do produto.
+const lightbox=document.getElementById('imageLightbox'),lightboxImage=document.getElementById('lightboxImage');img.addEventListener('click',()=>{if(!img.src)return;lightboxImage.src=img.src;lightboxImage.alt=img.alt;lightbox.classList.add('open');});function closeLightbox(){lightbox.classList.remove('open');}document.getElementById('lightboxClose').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});document.getElementById('currentYear').textContent=new Date().getFullYear();
+
+</script>
+
+</body></html>
